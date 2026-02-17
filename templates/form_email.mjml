@@ -1,0 +1,28 @@
+<mjml>
+    <mj-head> 
+        <mj-title>Поступила новая форма!</mj-title>
+        <mj-font name="Montserrat" href= "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap"/>
+        <mj-font name="Bebas" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
+    </mj-head>
+  <mj-body>
+    <mj-section background-color= "#1f1f1f">
+      <mj-column>
+
+        <mj-text font-size="32px" color="#fff" font-family="Bebas">Адмирал-ВМФ им. Гриши Григорьева</mj-text>
+        
+
+        <mj-divider border-color="#191514"></mj-divider>
+
+        <mj-text font-size="24px" color="#5671de" font-family="Montserrat">ФИО ребенка: {{ full_name }}</mj-text>
+        <mj-text font-size="24px" color="#5671de" font-family="Montserrat">Дата рождения ребенка: {{ birthday }}</mj-text>
+        <mj-text font-size="24px" color="#5671de" font-family="Montserrat">ФИО родителя: {{ parrents_full_name }}</mj-text>
+        <mj-text font-size="24px" color="#5671de" font-family="Montserrat">Номер телефона: {{ number_phone }}</mj-text>
+
+        <mj-text font-size="24px" color="#5671de" font-family="Montserrat">Филлиал: {{ fillial }}</mj-text>
+
+        <mj-divider border-color="#191514"></mj-divider>
+
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
