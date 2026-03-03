@@ -4,10 +4,13 @@ from datetime import datetime
 import enum
 from typing import List
 
-class FillialOptions(str, enum.Enum): 
-    f1 = "Fillial 1"
-    f2 = "Fillial 2"
-    f3 = "Fillial 3"
+class FillialOptions(str, enum.Enum):
+    f1 = "Затонная, 22"
+    f2 = "Судостроительная, 48"
+    f3 = "Судостроительная, 46"
+    f4 = "Новинки, 8"
+    f5 = "Спортивная, вл 2"
+    f6 = "Судостроительная 32к3"
 
 class Fillials(BaseModel):
     option: List[str]
