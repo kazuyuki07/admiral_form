@@ -1,22 +1,36 @@
-import enum
+# import enum
 from datetime import datetime
-from typing import List
+from typing import List, Literal
 
 from pydantic import BaseModel
 from pydantic_extra_types.phone_numbers import PhoneNumber
 
+FillialOptions = Literal["Москва, Затонная, 22", 
+                         "Москва, Новинки, 8", 
+                         "Москва, Судостроительная улица, 46с1",
+                         "Москва, Судостроительная, 48",
+                         "Москва, Спортивная, вл 2",
+                         "Москва, Судостроительная 32к3"
+                         ]
 
-class FillialOptions(str, enum.Enum):
-    f1 = "Москва, Затонная, 22"
-    f2 = "Москва, Новинки, 8"
-    f3 = "Москва, Судостроительная улица, 46с1"
-    f4 = "Москва, Судостроительная, 48"
-    f5 = "Москва, Спортивная, вл 2"
-    f6 = "Москва, Судостроительная 32к3"
+# class FillialOptions(str, enum.Enum):
+#     f1 = "Москва, Затонная, 22"
+#     f2 = "Москва, Новинки, 8"
+#     f3 = "Москва, Судостроительная улица, 46с1"
+#     f4 = "Москва, Судостроительная, 48"
+#     f5 = "Москва, Спортивная, вл 2"
+#     f6 = "Москва, Судостроительная 32к3"
 
 
 class Fillials(BaseModel):
     option: List[str]
+
+class FormInput(BaseModel):
+    full_name: str
+    birthday: str
+    parrents_full_name: str
+    number_phone: str
+    fillial: FillialOptions
 
 
 class Form(BaseModel):
