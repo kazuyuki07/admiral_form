@@ -11,12 +11,13 @@ form_router = APIRouter(prefix="/form", tags=["Form📄"])
 @form_router.post("/send_form", response_model=EmailRequest)
 async def send_form(data: FormInput):
     form = Frmail(
-        data.full_name, 
-        data.birthday, 
-        data.parrents_full_name, 
+        data.full_name,
+        data.birthday,
+        data.parrents_full_name,
         data.number_phone,
-        data.fillial)
-    
+        data.fillial,
+    )
+
     if not form.number_phone.startswith("+7 9"):
         raise HTTPException(
             status_code=422,
