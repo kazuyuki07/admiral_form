@@ -1,11 +1,14 @@
-from fastapi import APIRouter, HTTPException
 from datetime import datetime
-from form_schemas import Form, EmailRequest, FillialOptions
+
+from fastapi import APIRouter, Body, HTTPException
+
+from form_schemas import EmailRequest, FillialOptions, Form
 from to_email import Frmail
 
 form_router = APIRouter(prefix="/form", tags=["Form📄"])
 
-@form_router.post("/send_form", response_model= EmailRequest)
+
+@form_router.post("/send_form", response_model=EmailRequest)
 async def send_form(
     full_name: str,
     birthday: str,
@@ -14,12 +17,11 @@ async def send_form(
     fillial: FillialOptions,
 ):
     form = Frmail(full_name, birthday, parrents_full_name, number_phone, fillial)
-    if not number_phone.startswith('+79') or len(number_phone) != 12:
+    if not number_phone.startswith("+7 9"):
         raise HTTPException(
-            status_code= 422,
-            detail= 'Неверный формат номер телефона: +79XXXXXXXXX (12 цифр)'
+            status_code=422,
+            detail="Неверный формат номер телефона",
         )
-
 
     request = EmailRequest(
         email_sender=form.SENDER,
@@ -31,7 +33,7 @@ async def send_form(
             parrents_full_name=parrents_full_name,
             number_phone=number_phone,
             fillial=fillial,
-        )
+        ),
     )
 
     form.send_email()
