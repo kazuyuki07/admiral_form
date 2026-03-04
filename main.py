@@ -6,5 +6,5 @@ from form_router import form_router
 app = FastAPI()
 app.include_router(form_router)
 app.add_middleware(
-    TrustedHostMiddleware, allowed_hosts=["92.246.76.92", "127.0.0.1:5173"]
+    TrustedHostMiddleware, allowed_hosts=["admiraltest.ru", "127.0.0.1:5173"]
 )
