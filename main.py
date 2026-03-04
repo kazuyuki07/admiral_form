@@ -1,10 +1,10 @@
 from fastapi import FastAPI
-import uvicorn
+from fastapi.middleware.trustedhost import TrustedHostMiddleware
 
 from form_router import form_router
 
 app = FastAPI()
 app.include_router(form_router)
-
-if __name__ == "__main__":
-    uvicorn.run("main:app", reload=True)
+app.add_middleware(
+    TrustedHostMiddleware, allowed_hosts=["92.246.76.92", "127.0.0.1:5173"]
+)
