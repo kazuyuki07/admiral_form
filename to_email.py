@@ -21,6 +21,8 @@ class Frmail:
         config = configparser.ConfigParser()
         config.read('email_config.ini')
 
+        self.number_phone = number_phone
+
         self.birthday = datetime.strptime(birthday, '%d.%m.%Y')
 
         load_dotenv()
