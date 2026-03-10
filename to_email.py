@@ -64,11 +64,14 @@ class Frmail:
 
         try:
             with smtplib.SMTP(self.HOST, self.PORT) as server:
+                print("Подключение к TLS режиму...")
                 server.starttls()
+                print("Подключено!\nИнициализация...")
                 server.login(self.SENDER, self.PASSWORD)
+                print("Инициализация выполнена!\nИдет отправка...")
                 server.send_message(msg)
 
             print("✔️ Письмо с формой - отправлено!")
 
         except Exception as e:
-            raise HTTPException(status_code=503, detail="❌ Не отправлено:\n" + str(e))
+            raise HTTPException(status_code=503, detail="Не отправлено: " + str(e))
